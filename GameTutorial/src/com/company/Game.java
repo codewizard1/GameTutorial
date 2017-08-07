@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Game extends Canvas implements Runnable {
 
-    public static final int WIDTH = 640;
+    public static final int WIDTH = 640; // test change
     public static final int HEIGHT = WIDTH / 12 * 9;
     //Lets make a thread
     private Thread thread;
