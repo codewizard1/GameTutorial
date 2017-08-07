@@ -6,7 +6,8 @@ import java.util.Random;
 
 public class Game extends Canvas implements Runnable {
 
-    public static final int WIDTH = 640; // test change
+    public static final int WIDTH = 640;
+    //Makes a nice aspect ratio for our game
     public static final int HEIGHT = WIDTH / 12 * 9;
     //Lets make a thread
     private Thread thread;
@@ -18,11 +19,11 @@ public class Game extends Canvas implements Runnable {
     public Game() {
 
         handler = new Handler();
-        this.addKeyListener(new KeyInput(handler));
+        this.addKeyListener(new KeyInput(handler));//Add keyinput to our game
 
 
         Window window = new Window(WIDTH, HEIGHT, "Dodge Game", this);
-        hud = new HUD();
+        hud = new HUD();//initialize HUD
 
         r = new Random();
         // for (int i = 0; i < 50; i++) {//This basically adds 50 objects
@@ -30,19 +31,19 @@ public class Game extends Canvas implements Runnable {
         //handler.addObject(new Player(200, 200, ID.Player));//Adds another object to the box.
         // }
 
-        handler.addObject(new Player(WIDTH / 2 - 32, HEIGHT / 2 - 32, ID.Player ,  handler));//Spawns in the middle of the screen
+        handler.addObject(new Player(WIDTH / 2 - 32, HEIGHT / 2 - 32, ID.Player, handler));//Spawns a player  in the middle of the screen
         //Only one player here .
         //handler.addObject(new Player(WIDTH/2+64, HEIGHT/2-32,ID.Player2));//Adds player 2 here
 
         //for(int i = 0 ; i< 20; i++) {//If we want 20 enemies in the room
         //  handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy));
         //}
-        for(int i = 0; i<5;i++) {//Adds a couple enemies to the game
-            handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy, handler));
+        for (int i = 0; i < 5; i++) {//Adds a couple enemies to the game
+            handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy, handler));//Adds an enemy to our game
         }
     }
 
-    public synchronized void start() {
+    public synchronized void start() {//Game start method
         thread = new Thread(this);
         //This instance of this class
         thread.start();
@@ -50,7 +51,7 @@ public class Game extends Canvas implements Runnable {
 
     }
 
-    public synchronized void stop() {
+    public synchronized void stop() {//Game stop method
 
         try {
 
@@ -65,7 +66,7 @@ public class Game extends Canvas implements Runnable {
 
     }
 
-    public void run() {
+    public void run() {//Game loop
         this.requestFocus();//I dont need to click on the screen to enter my keybpard inputs.
         long lastTime = System.nanoTime(); // get current time to the nanosecond
         double amountOfTicks = 60.0; // set the number of ticks
@@ -119,8 +120,8 @@ public class Game extends Canvas implements Runnable {
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
-        handler.render(g);
-        hud.render(g);
+        handler.render(g);//Renders the handler objects
+        hud.render(g);//renders the trail stuff
         g.dispose();
         bs.show();
 
@@ -137,12 +138,12 @@ public class Game extends Canvas implements Runnable {
             return var;
         }
 
-
+    //This method will check to make sure our game objects dont go out of the board.
     }
 
 
     public static void main(String[] args) {
-        Game game = new Game();
+        Game game = new Game();//Starts the game
 
     }
 

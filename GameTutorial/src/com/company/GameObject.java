@@ -15,14 +15,14 @@ public abstract class GameObject {
 
 
     }
-    //sfdszdsdsds
-    //sdsdssdssdsd
+
 
     public abstract void tick();
     public abstract void render(Graphics g);
     public abstract Rectangle getBounds();//We are going to use rectangle to handle collisions.
     //We need to use the intersects method. If the rectangles intersect each other they return true.
-
+    //Each object has a rectangular bound. If it touches that bound it counts as a intersection other wise it does not.
+    //So if we deal with objects other than rectangles it would take some math to calculate the collison area.
     public void setX(int x) {
 
         this.x = x;
@@ -66,6 +66,8 @@ public abstract class GameObject {
     public int getVelY() {
         return velY;
     }
+
+    //Just a whole bunch of getters and setters.
 
 
 
