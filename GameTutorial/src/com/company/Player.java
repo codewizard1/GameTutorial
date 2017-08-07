@@ -42,7 +42,7 @@ public class Player extends GameObject {
             if (tempObject.getId() == ID.BasicEnemy) {
 
                 //COllision code
-                if (getBounds().intersects(tempObject.getBounds())) {
+                if (getBounds().intersects(tempObject.getBounds())) {//If the player intersects the enemy then decrease Health by 2
                     HUD.HEALTH -= 2;
 
                 }
