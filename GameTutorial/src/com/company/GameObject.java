@@ -15,6 +15,8 @@ public abstract class GameObject {
 
 
     }
+    //sfdszdsdsds
+    //sdsdssdssdsd
 
     public abstract void tick();
     public abstract void render(Graphics g);
