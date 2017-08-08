@@ -10,6 +10,7 @@ public class HUD {
     private int greenValue = 255; //0 is black 255 is a full array of colors
     private int score = 0;//Create a defualt score and level for the game
     private int level = 1;
+
     //If you set green Value to 0 ur gonna get a red color
     public void tick() {
         // HEALTH--;//This decreases our Health. BUt its irrelevent
@@ -33,7 +34,7 @@ public class HUD {
         g.drawRect(15, 15, 200, 32);
 
         g.drawString("Score: " + score, 15, 64);//Draws two strings score and level to the board
-        g.drawString("Level: " + level, 15 , 80 );
+        g.drawString("Level: " + level, 15, 80);
 
 
     }

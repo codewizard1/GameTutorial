@@ -41,9 +41,9 @@ public class Game extends Canvas implements Runnable {
         //  handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy));
         //}
         //for (int i = 0; i < 5; i++) {//Adds a couple enemies to the game
-         //   handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy, handler));//Adds an enemy to our game
-       // }
-        handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50) , r.nextInt(Game.HEIGHT -50) , ID.BasicEnemy, handler));
+        //   handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy, handler));//Adds an enemy to our game
+        // }
+        handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler));
         //Need the - 50 because it spawns off the border so it increases preccision of where it is going to spawn.
     }
 
@@ -143,7 +143,7 @@ public class Game extends Canvas implements Runnable {
             return var;
         }
 
-    //This method will check to make sure our game objects dont go out of the board.
+        //This method will check to make sure our game objects dont go out of the board.
     }
 
 

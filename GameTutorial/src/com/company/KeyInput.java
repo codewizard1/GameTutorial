@@ -77,7 +77,7 @@ public class KeyInput extends KeyAdapter {
 
         }
 
-        if(key == KeyEvent.VK_ESCAPE){//If we hit escape exits out of the game
+        if (key == KeyEvent.VK_ESCAPE) {//If we hit escape exits out of the game
 
             System.exit(1);
         }

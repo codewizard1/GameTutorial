@@ -30,26 +30,23 @@ public class Spawner {//This class is for spawning the enemies
             hud.setLevel(hud.getLevel() + 1);
 
 
+            if (hud.getLevel() == 2) {
 
-         if (hud.getLevel() == 2) {
+                handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler));
 
-                handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT-50), ID.BasicEnemy, handler));
+            } else if (hud.getLevel() == 3) {
+                //YOu can control the game right now. Two enemies will spawn every level 3 or more.
 
-         }
-         else if(hud.getLevel() == 3){
-             //YOu can control the game right now. Two enemies will spawn every level 3 or more.
+                handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler));
+                handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.BasicEnemy, handler));
 
-             handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT-50), ID.BasicEnemy, handler));
-             handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT-50), ID.BasicEnemy, handler));
+            } else if (hud.getLevel() == 4) {
+                //Adds a new fast enemy once we get to level 4.
 
-         }
-         else if(hud.getLevel() == 4){
-        //Adds a new fast enemy once we get to level 4. 
-
-             handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT-50), ID.fastEnemy, handler));
+                handler.addObject(new FastEnemy(r.nextInt(Game.WIDTH - 50), r.nextInt(Game.HEIGHT - 50), ID.fastEnemy, handler));
 
 
-         }
+            }
 
         }
 

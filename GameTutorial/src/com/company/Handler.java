@@ -10,7 +10,8 @@ public class Handler {
     //Will loop through every object and render and update them to the screen individually.
 
     LinkedList<GameObject> object = new LinkedList<GameObject>();
-//We are going to add GameObjects to our list this is what the handler class does.
+
+    //We are going to add GameObjects to our list this is what the handler class does.
     public void tick() {
         for (int i = 0; i < object.size(); i++) {//Going to loop through every one of our game objects
             GameObject tempObject = object.get(i);//Get an object at a position in a Linked List
