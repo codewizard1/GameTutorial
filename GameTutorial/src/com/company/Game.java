@@ -15,6 +15,7 @@ public class Game extends Canvas implements Runnable {
     private Handler handler;
     private Random r;
     private HUD hud;
+    private Spawner spawn;
 
     public Game() {
 
@@ -24,7 +25,8 @@ public class Game extends Canvas implements Runnable {
 
         Window window = new Window(WIDTH, HEIGHT, "Dodge Game", this);
         hud = new HUD();//initialize HUD
-
+        spawn = new Spawner(handler, hud); //Where you put this matters
+        //When you get a null point look over ur code and make sure the code is in order
         r = new Random();
         // for (int i = 0; i < 50; i++) {//This basically adds 50 objects
         //    handler.addObject(new Player(0, 0, ID.Player));//This gets us a white box!
@@ -38,9 +40,11 @@ public class Game extends Canvas implements Runnable {
         //for(int i = 0 ; i< 20; i++) {//If we want 20 enemies in the room
         //  handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy));
         //}
-        for (int i = 0; i < 5; i++) {//Adds a couple enemies to the game
-            handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy, handler));//Adds an enemy to our game
-        }
+        //for (int i = 0; i < 5; i++) {//Adds a couple enemies to the game
+         //   handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy, handler));//Adds an enemy to our game
+       // }
+        handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH - 50) , r.nextInt(Game.HEIGHT -50) , ID.BasicEnemy, handler));
+        //Need the - 50 because it spawns off the border so it increases preccision of where it is going to spawn.
     }
 
     public synchronized void start() {//Game start method
@@ -101,9 +105,10 @@ public class Game extends Canvas implements Runnable {
         stop(); // no longer running stop the thread
     }
 
-    private void tick() {
+    private void tick() {//This is where all the processing happens in a game
         handler.tick();
         hud.tick();
+        spawn.tick();
 
     }
 

@@ -29,7 +29,7 @@ public class Player extends GameObject {
         collision();
 
 
-        //    handler.addObject(new Trail(x,y,ID.Trail,Color.red,32,32,0.02F,handler));
+        handler.addObject(new Trail(x, y, ID.Trail, Color.white, 32, 32, 0.02F, handler));
         //This makes a trail on the player. Optional Xd.
 
     }
@@ -39,7 +39,7 @@ public class Player extends GameObject {
         for (int i = 0; i < handler.object.size(); i++) {
 
             GameObject tempObject = handler.object.get(i);
-            if (tempObject.getId() == ID.BasicEnemy) {
+            if (tempObject.getId() == ID.BasicEnemy || tempObject.getId() == ID.fastEnemy) {
 
                 //COllision code
                 if (getBounds().intersects(tempObject.getBounds())) {//If the player intersects the enemy then decrease Health by 2
